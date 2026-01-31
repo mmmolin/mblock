@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="popup.css" />
+    <title>mblock</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>mblock</h1>
+      <div class="add-row">
+        <input id="url-input" placeholder="Enter URL filter (e.g. *://example.com/*)" />
+        <button id="block-btn">Add</button>
+      </div>
+
+      <h2>Active Time Range</h2>
+      <label for="start-time">Start Time:</label>
+      <input type="time" id="start-time" name="start-time">
+      <label for="end-time">End Time:</label>
+      <input type="time" id="end-time" name="end-time">
+
+      <h2>Saved Addresses</h2>
+      <div id="addresses">
+        <ul id="address-list"></ul>
+        <div id="no-addresses" class="muted">No addresses added.</div>
+      </div>
+    </div>
+    <script src="dist/popup.js"></script>
+  </body>
+</html>
