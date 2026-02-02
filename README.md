@@ -34,15 +34,17 @@ npm run build
 ## Usage
 
 1. **Set your focus hours**: Click the extension icon and set the start and end times for when you want blocking to be active
-2. **Add websites to block**: Enter a URL pattern (e.g., `https://youtube.com` or `*://twitter.com/*`) and click "Add"
+2. **Add websites to block**: Enter a URL (e.g., `https://youtube.com` or `https://twitter.com`) and click "Add"
 3. **Manage your list**: View all blocked URLs and remove them individually as needed
 4. **Stay focused**: During your specified time range, any attempt to visit blocked sites will show a "page blocked" message
 
 ### URL Pattern Examples
-- `https://youtube.com` - Blocks YouTube
-- `https://twitter.com` - Blocks Twitter
-- `*://reddit.com/*` - Blocks Reddit with any protocol
-- `https://facebook.com` - Blocks Facebook
+- `https://youtube.com` - Blocks all YouTube pages (e.g., https://youtube.com, https://youtube.com/watch?v=...)
+- `https://twitter.com` - Blocks all Twitter pages
+- `https://reddit.com` - Blocks all Reddit pages
+- `https://facebook.com` - Blocks all Facebook pages
+
+**Note**: The extension uses simple prefix matching. Any page URL that starts with your entered URL will be blocked.
 
 ## How It Works
 
