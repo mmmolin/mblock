@@ -8,11 +8,11 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   }
 });
 
-function isBlockedUrl(url: string, blockedUrl: string): boolean {
+function matchesBlockedAddress(url: string, blockedUrl: string): boolean {
   return url.startsWith(blockedUrl);
 }
 
-function isBlockTime(startTime: string, endTime: string): boolean {
+function isBlockingActive(startTime: string, endTime: string): boolean {
     const [startHour, startMinutes] = startTime.split(':').map(Number);
     const startDate = new Date();
     startDate.setHours(startHour, startMinutes, 0, 0);
@@ -33,10 +33,10 @@ function checkAndBlock() {
       const startTime: string = res.startTime as string;
       const endTime: string = res.endTime as string;
 
-      if (isBlockTime(startTime, endTime)) {
+      if (isBlockingActive(startTime, endTime)) {
         for (const address of addresses) {
           try {
-            if (isBlockedUrl(location.href, address)) {
+            if (matchesBlockedAddress(location.href, address)) {
               const html = `<!doctype html><html><head><meta charset="utf-8"><title>Blocked</title><style>body{display:flex;align-items:center;justify-content:center;height:100vh;margin:0;font-family:Arial,sans-serif}h1{font-size:24px;color:#222}</style></head><body><h1>page blocked</h1></body></html>`;
               document.open();
               document.write(html);
